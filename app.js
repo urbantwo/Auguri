@@ -49,15 +49,16 @@ function rendiVisibile(){
     // addTesto()
     
 
-    var cella = document.getElementById('testoFinaleId')
-    // cella.classList.add('animazioneEntra')
+    var cella = document.getElementById('risultato')
+    cella.classList.add('animazioneEntra')
     
 }
 
 
 function rendiInvisibile(){
 
-    var cella = document.getElementById('testoFinaleId')
+    var cella = document.getElementById('risultato')
+    cella.classList.add('animazioneEsce')
     // document.getElementById('body').removeChild(cella)
     var nero = document.getElementById('nero')
     nero.classList.remove('visibile')
@@ -69,4 +70,10 @@ function addTesto() {
     cella.id = 'testoFinaleId'
 
     document.getElementById('nero').appendChild(cella)
+}
+
+function aggiungiRiquadro() {
+
+    var cella = document.createElement('div')
+    cella.id = 
 }

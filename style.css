@@ -183,19 +183,55 @@ html{
     animation-timing-function: ease-in;
 }
 
+.animazioneEsce{
+    animation-name: scompare;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+}
+
 @keyframes compare {
-    0%{
+    0%{display: none;
         transform: translateY(20px);
         opacity: 0;
+        z-index: -300;
+    }
+
+    1%{
+        display: flex!;
+        z-index: 300 !important;
     }
 
     100%{
         transform: translateY(0);
         opacity: 1;
+        z-index: 300 !important;
+    }
+    
+}
+
+@keyframes scompare {
+    0%{
+        display: flex;
+    }
+
+    100%{
+        display: none;
     }
     
 }
 
 #cover{
+
+}
+
+#risultato{
+    width: 300px;
+    max-width: 90%;
+    height: 100px;
+    position: absolute;
+    background-color: white;
+    border-radius: 15px;
+    z-index: -300;
     
 }
