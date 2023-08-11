@@ -1,6 +1,8 @@
 
 function faiAuguri() {
 
+    rendiVisibile()
+
     var risposte = [
         {testo: `Ue beggggg, grazie mille 💪💪`},
         {testo: `Bah, cce cazzu ncete de festeggiare`},
@@ -24,11 +26,11 @@ function faiAuguri() {
     console.log(`Ciao ${nome}, perchè mi hai scritto "${testo}"`)
     // window.alert(`Ciao ${nome}, perchè mi hai scritto "${testo}"`)
 
-    var risposta = risposte[indice].testo
+    /*var risposta = risposte[indice].testo
     if (risposta.includes("$$$")){
         risposta = risposta.replace("$$$",nome)
     }
-    window.alert(risposta)
+    window.alert(risposta)*/
     
 }
 
@@ -39,3 +41,32 @@ addEventListener("DOMContentLoaded", () => {
 });
 
 
+function rendiVisibile(){
+    var nero = document.getElementById('nero')
+    nero.classList.add('visibile')
+
+    nero.addEventListener('click',rendiInvisibile)
+    // addTesto()
+    
+
+    var cella = document.getElementById('testoFinaleId')
+    // cella.classList.add('animazioneEntra')
+    
+}
+
+
+function rendiInvisibile(){
+
+    var cella = document.getElementById('testoFinaleId')
+    // document.getElementById('body').removeChild(cella)
+    var nero = document.getElementById('nero')
+    nero.classList.remove('visibile')
+}
+
+function addTesto() {
+    var cella = document.createElement('div')
+    cella.classList.add('testoFinale')
+    cella.id = 'testoFinaleId'
+
+    document.getElementById('nero').appendChild(cella)
+}

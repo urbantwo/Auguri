@@ -11,12 +11,19 @@
 * {
     font-family: 'Bricolage Grotesque', sans-serif !important;
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
+
 
 
 body{
     background-color: var(--verde-background);
-    display: flex;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    /* display: flex;
     justify-content: center;
 
     align-items: center;
@@ -24,7 +31,7 @@ body{
     max-height: 95vh;
     margin: 10px;
     margin-bottom: 30px;
-    flex-direction: column;
+    flex-direction: column; */
 }
 
 main {
@@ -125,4 +132,70 @@ main {
 .credits a {
     text-decoration: none;
     color: var(--link);
+}
+
+#nero {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.382);
+    width: 100%;
+    height: 100vh;
+    /* transition-property: opacity;
+    transition-duration: 0.7s; */
+    opacity: 0;
+    z-index: -2;
+    cursor: pointer;
+    top: 0px;
+}
+
+.visibile {
+    z-index: 200 !important;
+    opacity: 1 !important;
+}
+
+html{
+
+}
+.container {
+    background-color: var(--verde-background);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 800px;
+    max-height: 95vh;
+    margin: 10px;
+    margin-bottom: 30px;
+    flex-direction: column;
+}
+
+.testoFinale{
+    width: 300px;
+    height: 300px;
+    background-color: white;
+    position: absolute;
+    z-index: 300;
+    border-radius: 15px;
+}
+
+.animazioneEntra{
+    animation-name: compare;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+}
+
+@keyframes compare {
+    0%{
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    100%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+    
+}
+
+#cover{
+    
 }
