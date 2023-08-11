@@ -1,7 +1,7 @@
 
 function faiAuguri() {
 
-    rendiVisibile()
+    
 
     var risposte = [
         {testo: `Ue beggggg, grazie mille 💪💪`},
@@ -15,11 +15,20 @@ function faiAuguri() {
         {testo: `Grazie mille, ma stefano stae già mbriacu.`},
         {testo: `28 anni menati allu ientu, ma grazie comunque.`},
         {testo: `Stefano come sempre, non ha visto il messaggio e potrebbe non risponderti mai. Al massimo se ne accorge l'anno prossimo.`},
+        {testo: `Lo stesso.`},
+        {testo: `Anche a te e famiglia.`},
+        {testo: `E quiste su le oe... ah no aspe, quello era per pasqua`},
     ]
 
 
     var testo = document.getElementById('testo').value
     var nome = document.getElementById('nome').value
+
+    if(testo.trim() != "" && nome.trim() !=""){
+        rendiVisibile()
+
+   
+
 
     var indice =  Math.floor(Math.random() * risposte.length) 
 
@@ -31,7 +40,34 @@ function faiAuguri() {
         risposta = risposta.replace("$$$",nome)
     }
     window.alert(risposta)*/
-    
+
+    var messaggio = document.createElement('div')
+    messaggio.classList = 'messaggio'
+
+    var risposta = risposte[indice].testo
+    if (risposta.includes("$$$")){
+        risposta = risposta.replace("$$$",nome)
+    }
+    messaggio.innerHTML = risposta
+
+    var testoxl = document.createElement('div')
+    testoxl.classList = 'testo-dentro-grande'
+    testoxl.innerHTML = testo
+
+    var cella = document.getElementById('risultato')
+    cella.appendChild(testoxl)
+    cella.appendChild(messaggio)
+
+
+    var chiudi = document.createElement('div')
+    chiudi.id = 'chiudi'
+    chiudi.innerHTML = "Chiudi"
+    cella.appendChild(chiudi)
+
+    chiudi.addEventListener('click',rendiInvisibile)
+    } else{
+        window.alert("Brutt* mberda, completa i campi")
+    }
 }
 
 
@@ -45,12 +81,16 @@ function rendiVisibile(){
     var nero = document.getElementById('nero')
     nero.classList.add('visibile')
 
+    var cover = document.getElementById('cover')
+    cover.style = 'z-index : 50 !important'
+
     nero.addEventListener('click',rendiInvisibile)
+    aggiungiRiquadro()
     // addTesto()
     
 
-    var cella = document.getElementById('risultato')
-    cella.classList.add('animazioneEntra')
+    // var cella = document.getElementById('risultato')
+    // cella.classList.add('animazioneEntra')
     
 }
 
@@ -62,18 +102,60 @@ function rendiInvisibile(){
     // document.getElementById('body').removeChild(cella)
     var nero = document.getElementById('nero')
     nero.classList.remove('visibile')
+
+    var cover = document.getElementById('cover')
+    cover.style = ''
+
+    rimuoviRiquadro()
 }
 
-function addTesto() {
-    var cella = document.createElement('div')
-    cella.classList.add('testoFinale')
-    cella.id = 'testoFinaleId'
+// function addTesto() {
+//     var cella = document.createElement('div')
+//     cella.classList.add('testoFinale')
+//     cella.id = 'testoFinaleId'
 
-    document.getElementById('nero').appendChild(cella)
-}
+//     document.getElementById('nero').appendChild(cella)
+// }
 
 function aggiungiRiquadro() {
 
+    
+    
+    var nome = document.getElementById('nome').value
+
+    var testo = document.getElementById('testo').value
+
     var cella = document.createElement('div')
-    cella.id = 
+    cella.id = 'risultato'
+
+    var testo = document.createElement('div')
+    testo.classList = 'testo-dentro'
+    testo.innerText = nome
+
+    // var testoxl = document.createElement('div')
+    // testoxl.classList = 'testo-dentro-grande'
+    // testoxl.innerHTML = testo
+
+    var messaggio = document.createElement('div')
+    messaggio.classList = 'messaggio'
+    messaggio.innerHTML = 'prova'
+    cella.append(testo)
+    // cella.append(testoxl)
+
+
+    var target = document.getElementById('cover')
+    target.appendChild(cella)
 }
+
+function rimuoviRiquadro() {
+
+    var target = document.getElementById('cover')
+    var cella = document.getElementById('risultato')
+
+    target.removeChild(cella)
+}
+
+
+/*
+<div id="risultato"></div>
+*/
