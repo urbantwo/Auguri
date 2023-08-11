@@ -4,6 +4,7 @@ function faiAuguri() {
     var nome = document.getElementById('nome').value
 
     console.log(`Ciao ${nome}, perchè mi hai scritto "${testo}"`)
+    window.alert(`Ciao ${nome}, perchè mi hai scritto "${testo}"`)
 }
 
 

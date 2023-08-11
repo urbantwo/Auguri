@@ -3,6 +3,7 @@
     --verde-background : #b8e695;
     --verde : #CAFBA4;
     --blu : #5d9685;
+    --link : #376255;
     --blu-hover : #64A894;
     --gap : 15px;
 }
@@ -19,10 +20,11 @@ body{
     justify-content: center;
 
     align-items: center;
-    height: 700px;
+    height: 800px;
     max-height: 95vh;
     margin: 10px;
     margin-bottom: 30px;
+    flex-direction: column;
 }
 
 main {
@@ -114,4 +116,13 @@ main {
 
 .logo{
     width: 200px;
+}
+
+.credits{
+    color: var(--blu);
+}
+
+.credits a {
+    text-decoration: none;
+    color: var(--link);
 }
