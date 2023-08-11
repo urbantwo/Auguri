@@ -1,4 +1,6 @@
 :root {
+    --verde-light : #d0f7b2;
+    --verde-background : #b8e695;
     --verde : #CAFBA4;
     --blu : #5d9685;
     --blu-hover : #64A894;
@@ -7,29 +9,35 @@
 
 * {
     font-family: 'Bricolage Grotesque', sans-serif !important;
+    box-sizing: border-box;
 }
 
 
 body{
-    background-color: var(--verde);
+    background-color: var(--verde-background);
     display: flex;
     justify-content: center;
 
     align-items: center;
-    height: 100vh;
-    margin: 0;
+    height: 700px;
+    max-height: 95vh;
+    margin: 10px;
+    margin-bottom: 30px;
 }
 
 main {
     /* background-color: red; */
     width: 600px;
     max-width: 100%;
-    height: 800px;
-    max-height: 100%;
+    height: 600px;
+    max-height: 90%;
     display: flex;
     flex-direction: column;
     gap: var(--gap);
     padding: var(--gap);
+    background-color: var(--verde);
+    border-radius: var(--gap);
+    align-items: center;
 }
 
 .controller{
@@ -104,3 +112,6 @@ main {
     font-size: large;
 }
 
+.logo{
+    width: 200px;
+}
