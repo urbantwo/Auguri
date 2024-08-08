@@ -13,10 +13,13 @@ function faiAuguri() {
         {testo: `Si grazie,ma tie ci sinti?.`},
         {testo: `Che culo ah, tutti sti auguri.`},
         {testo: `Grazie mille, ma stefano stae già mbriacu.`},
-        {testo: `28 anni menati allu ientu, ma grazie comunque.`},
+        {testo: `29 anni menati allu ientu, ma grazie comunque.`},
         {testo: `Stefano come sempre, non ha visto il messaggio e potrebbe non risponderti mai. Al massimo se ne accorge l'anno prossimo.`},
         {testo: `Lo stesso.`},
         {testo: `Anche a te e famiglia.`},
+        {testo: `E quiste su le oe... ah no aspe, quello era per pasqua`},
+        {testo: `Beh grazie, ma affanculu a mammata comunque`},
+        {testo: `Giuro che l'anno prossimo sparisco dalla circolazione, ma pe moi grazie`},
         {testo: `E quiste su le oe... ah no aspe, quello era per pasqua`},
     ]
 
@@ -24,30 +27,33 @@ function faiAuguri() {
     var testo = document.getElementById('testo').value
     var nome = document.getElementById('nome').value
 
+    
     if(testo.trim() != "" && nome.trim() !=""){
         rendiVisibile()
+        
+        
+        
+        
+        var indice =  Math.floor(Math.random() * risposte.length) 
+        
+        console.log(`Ciao ${nome}, perchè mi hai scritto "${testo}"`)
+        // window.alert(`Ciao ${nome}, perchè mi hai scritto "${testo}"`)
+        
+        /*var risposta = risposte[indice].testo
+        if (risposta.includes("$$$")){
+            risposta = risposta.replace("$$$",nome)
+            }
+            window.alert(risposta)*/
+            
+            var messaggio = document.createElement('div')
+            messaggio.classList = 'messaggio'
+            
+            var risposta = risposte[indice].testo
+            if (risposta.includes("$$$")){
+                risposta = risposta.replace("$$$",nome)
+            }
 
-   
-
-
-    var indice =  Math.floor(Math.random() * risposte.length) 
-
-    console.log(`Ciao ${nome}, perchè mi hai scritto "${testo}"`)
-    // window.alert(`Ciao ${nome}, perchè mi hai scritto "${testo}"`)
-
-    /*var risposta = risposte[indice].testo
-    if (risposta.includes("$$$")){
-        risposta = risposta.replace("$$$",nome)
-    }
-    window.alert(risposta)*/
-
-    var messaggio = document.createElement('div')
-    messaggio.classList = 'messaggio'
-
-    var risposta = risposte[indice].testo
-    if (risposta.includes("$$$")){
-        risposta = risposta.replace("$$$",nome)
-    }
+            var result = submitToGoogleForm(nome,testo,risposta);
     messaggio.innerHTML = risposta
 
     var testoxl = document.createElement('div')
@@ -61,7 +67,7 @@ function faiAuguri() {
 
     var chiudi = document.createElement('div')
     chiudi.id = 'chiudi'
-    chiudi.innerHTML = "Chiudi"
+    chiudi.innerHTML = "Chiudi meh"
     cella.appendChild(chiudi)
 
     chiudi.addEventListener('click',rendiInvisibile)
@@ -159,3 +165,25 @@ function rimuoviRiquadro() {
 /*
 <div id="risultato"></div>
 */
+
+
+function submitToGoogleForm(name, message,risposta) {
+    const formUrl = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSdMIDwneYuect463TTmDM04ZBHtXYrO1iymLnaQUck5vlBzmA/formResponse";
+    
+    const formData = new URLSearchParams();
+    formData.append("entry.1193643198", name);  // ID del campo nome
+    formData.append("entry.404148670", message); // ID del campo testo
+    formData.append("entry.1543236664", risposta); // ID del campo testo
+
+    fetch(formUrl, {
+        method: "POST",
+        body: formData,
+        mode: "no-cors"  // No-CORS mode per evitare problemi di CORS
+    })
+    .then(() => {
+        return true;
+    })
+    .catch((error) => {
+        return false;
+    });
+}

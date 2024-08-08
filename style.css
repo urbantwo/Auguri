@@ -1,10 +1,10 @@
 :root {
-    --verde-light : #d0f7b2;
-    --verde-background : #b8e695;
-    --verde : #CAFBA4;
-    --blu : #5d9685;
+    --verde-light : #c7d9fc;
+    --verde-background :#95b2e6;
+    --verde : #5270a7;
+    --blu : #314263;
     --link : #376255;
-    --blu-hover : #64A894;
+    --blu-hover : #485c85;
     --gap : 15px;
 }
 
@@ -165,6 +165,7 @@ html{
     margin: 10px;
     margin-bottom: 30px;
     flex-direction: column;
+    row-gap: 20px;
 }
 
 .testoFinale{
